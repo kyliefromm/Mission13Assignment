@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Add a bowler";
+}
+
+@model Mission13.Models.Bowl
+
+<h1>Add a Bowler</h1>
+
+<form method="post" asp-controller="Home" asp-action="Bowl">
+    <div asp-validation-summary="All"></div>
+
+    <div class="form-group">
+
+
+        <input type="hidden" asp-for="@Model.BowlerID" />
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerLastName">Last Name</label>
+        <input asp-for="@Model.BowlerLastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerFirstName">First Name</label>
+        <input asp-for="@Model.BowlerFirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerMiddleInit">Middle Initial</label>
+        <input asp-for="@Model.BowlerMiddleInit" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerAddress">Address</label>
+        <input asp-for="@Model.BowlerAddress" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerCity">City</label>
+        <input asp-for="@Model.BowlerAddress" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerState">State</label>
+        <input asp-for="@Model.BowlerState" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerZip">Zip</label>
+        <input asp-for="@Model.BowlerZip" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.BowlerPhoneNumber">Phone Number</label>
+        <input asp-for="@Model.BowlerPhoneNumber" class="form-control" />
+    </div>
+
+    <div class="form-group"
+    <label asp-for="TeamID">Team:</label>
+    <select asp-for="TeamID">
+        <option value="">Select a team </option>
+        @foreach (Team t in ViewBag.Teams)
+        {
+            <option value="@t.TeamID">@t.TeamName</option>
+        }
+    </select><br />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
